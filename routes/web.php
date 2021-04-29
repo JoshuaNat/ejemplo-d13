@@ -21,3 +21,6 @@ Route::get('/', function () {
 Route::get('/bienvenida/{nombre?}/{apellido?}', [InicioController::class, 'bienvenida']);
 
 Route::get('/contacto', [InicioController::class, 'contacto']);
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
